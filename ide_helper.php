@@ -77,6 +77,8 @@ class Response extends Illuminate\Support\Facades\Response{}
 
 /**
  * @method static Illuminate\Routing\Route get(string $route, Closure $function)
+ * @method static void controllers(array $controllers) Register an array of controllers with wildcard routing.
+ * @method static void controller(string $uri, string  $controller) Route a controller to a URI with wildcard routing.
  */
 class Route extends Illuminate\Support\Facades\Route{}
 
@@ -94,8 +96,3 @@ class Validator extends Illuminate\Support\Facades\Validator{}
  * @method static void share(string $tpl_key, mixed $value)
  */
 class View extends Illuminate\Support\Facades\View{}
-
-/**
- * @class Fluent
- * @method asd();
- */
