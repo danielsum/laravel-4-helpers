@@ -6,6 +6,7 @@
  * @method static void finished(Closure $callback) Register a "finish" application filter.
  * @method static void close(Closure $callback) Register a "close" application filter.
  * @method static void setLocale(string $locale) Set the current application locale.
+ * @method static void abort($code, $message = '', array $headers = array()) Throw an HttpException with the given data.
  */
 class App extends Illuminate\Support\Facades\App {}
 class Artisan extends Illuminate\Support\Facades\Artisan{}
@@ -13,7 +14,9 @@ class Artisan extends Illuminate\Support\Facades\Artisan{}
 /**
  * @method static boolean attempt(array $credentials, boolean $remember = false)
  * @method static void logout()
- * @method static \User user();
+ * @method static \User user()
+ * @method static bool check() Determine if the current user is authenticated.
+ * @method static \Illuminate\Auth\UserInterface loginUsingId(int $id, $remember = false) Log the given user ID into the application.
  */
 class Auth extends Illuminate\Support\Facades\Auth{}
 class Blade extends Illuminate\Support\Facades\Blade{}
