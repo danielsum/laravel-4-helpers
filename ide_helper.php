@@ -9,19 +9,23 @@
  * @method static void abort($code, $message = '', array $headers = array()) Throw an HttpException with the given data.
  */
 class App extends Illuminate\Support\Facades\App {}
+
+/**
+ * @method static void add($command)
+ */
 class Artisan extends Illuminate\Support\Facades\Artisan{}
 
 /**
  * @method static boolean attempt(array $credentials, boolean $remember = false)
  * @method static void logout()
- * @method static \User user()
+ * @method static User user()
  * @method static bool check() Determine if the current user is authenticated.
  * @method static \Illuminate\Auth\UserInterface loginUsingId(int $id, $remember = false) Log the given user ID into the application.
  */
 class Auth extends Illuminate\Support\Facades\Auth{}
 class Blade extends Illuminate\Support\Facades\Blade{}
 class Cache extends Illuminate\Support\Facades\Cache{}
-class ClassLoader extends Illuminate\Foundation\ClassLoader{}
+class ClassLoader extends Illuminate\Support\ClassLoader{}
 
 /**
  * @method static mixed get(string $key)
@@ -41,9 +45,19 @@ class Crypt extends Illuminate\Support\Facades\Crypt{}
 class DB extends Illuminate\Support\Facades\DB{}
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder where($column, $operator = null, $value = null)
+ * @method static EloquentHelper where($column, $operator = null, $value = null)
  */
 class Eloquent extends Illuminate\Database\Eloquent\Model{}
+
+/**
+ * Fake Class for \Illuminate\Database\Query\Builder
+ * @method EloquentHelper where($column, $operator = null, $value = null)
+ * @method EloquentHelper whereNull($column, $boolean = 'and', $not = false)
+ * @method EloquentHelper take(int $limit) Set the "limit" value of the query.
+ * @method int count($column = '*') Retrieve the "count" result of the query.
+ * @method \Illuminate\Database\Eloquent\Collection get($columns = array('*')) Execute the query as a "select" statement.
+ */
+class EloquentHelper {}
 class Event extends Illuminate\Support\Facades\Event{}
 class EventSubscriber extends Illuminate\Events\Subscriber{}
 class File extends Illuminate\Support\Facades\File{}
@@ -66,8 +80,14 @@ class Input extends Illuminate\Support\Facades\Input{}
  */
 class Lang extends Illuminate\Support\Facades\Lang{}
 class Log extends Illuminate\Support\Facades\Log{}
+
+/**
+ * @method static void send($view, array $data, $callback) Send a new message using a view.
+ */
 class Mail extends Illuminate\Support\Facades\Mail{}
 class Paginator extends Illuminate\Support\Facades\Paginator{}
+class Password extends Illuminate\Support\Facades\Password{}
+class Queue extends Illuminate\Support\Facades\Queue{}
 
 /**
  * @method static \Illuminate\Http\RedirectResponse to(string $path,int $status = 302,array $headers = array(),boolean $secure = false)
@@ -90,6 +110,13 @@ class Route extends Illuminate\Support\Facades\Route{}
  * @method static void drop(string $tableName)
  */
 class Schema extends Illuminate\Support\Facades\Schema{}
+
+/**
+ * @method static void put(string $name, mixed $value)
+ * @method static mixed get(string $name, mixed $default = null) Returns an attribute.
+ * @method static void forget(string $name)
+ * @method static bool has(string $name)
+ */
 class Session extends Illuminate\Support\Facades\Session{}
 class URL extends Illuminate\Support\Facades\URL{}
 class Validator extends Illuminate\Support\Facades\Validator{}
