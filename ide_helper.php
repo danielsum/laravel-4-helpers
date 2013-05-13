@@ -41,11 +41,26 @@ class Controller extends Illuminate\Routing\Controllers\Controller{}
  * @method static \Symfony\Component\HttpFoundation\Cookie forget(string $name) Expire the given cookie.
  */
 class Cookie extends Illuminate\Support\Facades\Cookie{}
+
+/**
+ * @method static string encrypt($value);
+ * @method static string decrypt($value)
+ */
 class Crypt extends Illuminate\Support\Facades\Crypt{}
+
+/**
+ * @method static delete($sql, $params = array())
+ * @method static insert($sql, $params = array())
+ * @method static select($sql, $params = array())
+ * @method static update($sql, $params = array())
+ * @method static statement($sql);
+ */
 class DB extends Illuminate\Support\Facades\DB{}
 
 /**
  * @method static EloquentHelper where($column, $operator = null, $value = null)
+ * @method static EloquentHelper whereNotNull($column)
+ * @method static EloquentHelper whereNull($column)
  */
 class Eloquent extends Illuminate\Database\Eloquent\Model{}
 
@@ -53,9 +68,12 @@ class Eloquent extends Illuminate\Database\Eloquent\Model{}
  * Fake Class for \Illuminate\Database\Query\Builder
  * @method EloquentHelper where($column, $operator = null, $value = null)
  * @method EloquentHelper whereNull($column, $boolean = 'and', $not = false)
+ * @method static EloquentHelper whereNotNull($column)
  * @method EloquentHelper take(int $limit) Set the "limit" value of the query.
  * @method int count($column = '*') Retrieve the "count" result of the query.
  * @method \Illuminate\Database\Eloquent\Collection get($columns = array('*')) Execute the query as a "select" statement.
+ * @method Eloquent first()
+ * @method EloquentHelper orderBy($column, $type)
  */
 class EloquentHelper {}
 class Event extends Illuminate\Support\Facades\Event{}
@@ -70,6 +88,7 @@ class Hash extends Illuminate\Support\Facades\Hash{}
 
 /**
  * @method static mixed old(string $key)
+ * @method static bool has(string $key)
  */
 class Input extends Illuminate\Support\Facades\Input{}
 
@@ -95,11 +114,22 @@ class Queue extends Illuminate\Support\Facades\Queue{}
  */
 class Redirect extends Illuminate\Support\Facades\Redirect{}
 class Redis extends Illuminate\Support\Facades\Redis{}
+
+/**
+ * Class Request
+ * @method static string url()
+ * @method static string path()
+ * @method static bool secure()
+ * @method static array query()
+ * @method static string getMethod()
+ * @methode static string getRequestUri()
+ */
 class Request extends Illuminate\Support\Facades\Request{}
 class Response extends Illuminate\Support\Facades\Response{}
 
 /**
  * @method static Illuminate\Routing\Route get(string $route, Closure $function)
+ * @method static Illuminate\Routing\Route post(string $route, Closure $function)
  * @method static void controllers(array $controllers) Register an array of controllers with wildcard routing.
  * @method static void controller(string $uri, string  $controller) Route a controller to a URI with wildcard routing.
  */
@@ -107,17 +137,20 @@ class Route extends Illuminate\Support\Facades\Route{}
 
 /**
  * @method static void create(string $tableName, Closure $function)
+ * @method static void table (string $tableName, Closure $function)
  * @method static void drop(string $tableName)
  */
 class Schema extends Illuminate\Support\Facades\Schema{}
 
 /**
  * @method static void put(string $name, mixed $value)
+ * @method static void flash(string $name, mixed $value)
  * @method static mixed get(string $name, mixed $default = null) Returns an attribute.
  * @method static void forget(string $name)
  * @method static bool has(string $name)
  */
 class Session extends Illuminate\Support\Facades\Session{}
+class Str extends Illuminate\Support\Str{}
 class URL extends Illuminate\Support\Facades\URL{}
 class Validator extends Illuminate\Support\Facades\Validator{}
 
